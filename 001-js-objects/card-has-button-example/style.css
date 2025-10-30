@@ -1,0 +1,48 @@
+.page {
+  margin: 40px 20px 0;
+  font-family: "Suisse Int'l", Arial, sans-serif;
+}
+
+.heading {
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: 600;
+  margin: 0 0 24px;
+}
+
+.cards {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 16px;
+}
+
+.card {
+  width: 213px;
+  height: 200px;
+  border-radius: 15px;
+  background-color: #f2f1ee;
+  padding: 20px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.card__title {
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.button {
+  background-color: #87befa;
+  border-radius: 12px;
+  border: none;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 500;
+  padding: 10px 12px;
+}
