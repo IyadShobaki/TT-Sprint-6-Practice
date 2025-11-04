@@ -22,23 +22,30 @@
         <h1 class="cover__heading">Playlist</h1>
       </div>
       <div class="block">
-        <h3>Add a Song</h3>
         <form name="add">
-          <input
-          name="title"
-            type="text"
-            placeholder="Title"
-            class="input__text input__text_type_title"
-          />
-          <input
-          name="artist"
-            type="text"
-            placeholder="Artist"
-            class="input__text input__text_type_artist"
-          />
-          <button class="input__btn input__btn_action_add">Add</button>
-        </div>
-    </form>
+          <h3>Add a Song</h3>
+          <div class="input">
+            <input
+              type="text"
+              name="title"
+              placeholder="Title"
+              class="input__text input__text_type_title"
+            />
+            <input
+              type="text"
+              name="artist"
+              placeholder="Artist"
+              class="input__text input__text_type_artist"
+            />
+            <button
+              class="input__btn input__btn_action_add input__btn_disabled"
+              disabled
+            >
+              Add
+            </button>
+          </div>
+        </form>
+      </div>
       <div class="block">
         <h3>Added Songs</h3>
         <div class="songs-container"></div>
