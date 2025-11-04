@@ -1,9 +1,9 @@
 "use strict";
 
 var songsContainer = document.querySelector(".songs-container");
-var addButton = document.querySelector(".input__btn_action_add");
-var artistInput = document.querySelector(".input__text_type_artist");
-var titleInput = document.querySelector(".input__text_type_title");
+var form = document.forms.add;
+var artist = form.elements.artist;
+var title = form.elements.title;
 
 function addSong(artistValue, titleValue) {
   var songTemplate = document.querySelector("#song-template").content;
@@ -13,8 +13,9 @@ function addSong(artistValue, titleValue) {
   songsContainer.append(songElement);
 }
 
-addButton.addEventListener("click", function () {
-  addSong(artistInput.value, titleInput.value);
-  artistInput.value = "";
-  titleInput.value = "";
+form.addEventListener("submit", function (evt) {
+  evt.preventDefault();
+  addSong(artist.value, title.value);
+  artist.value = "";
+  title.value = "";
 });

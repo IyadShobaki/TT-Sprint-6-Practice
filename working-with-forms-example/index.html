@@ -23,20 +23,22 @@
       </div>
       <div class="block">
         <h3>Add a Song</h3>
-        <div class="input">
+        <form name="add">
           <input
+          name="title"
             type="text"
             placeholder="Title"
             class="input__text input__text_type_title"
           />
           <input
+          name="artist"
             type="text"
             placeholder="Artist"
             class="input__text input__text_type_artist"
           />
           <button class="input__btn input__btn_action_add">Add</button>
         </div>
-      </div>
+    </form>
       <div class="block">
         <h3>Added Songs</h3>
         <div class="songs-container"></div>
