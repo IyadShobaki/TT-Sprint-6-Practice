@@ -4,23 +4,25 @@ var form = document.querySelector(".form");
 var formInput = form.querySelector(".form__input");
 var formError = form.querySelector(".".concat(formInput.id, "-error"));
 
-var showInputError = function showInputError(inputElement, errorMessage) {
+var showInputError = function showInputError(formElement, inputElement, errorMessage) {
+  var errorElement = formElement.querySelector(".".concat(inputElement.id, "-error"));
   inputElement.classList.add("form__input_type_error");
-  formError.textContent = errorMessage;
-  formError.classList.add("form__input-error_active");
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add("form__input-error_active");
 };
 
-var hideInputError = function hideInputError(inputElement) {
+var hideInputError = function hideInputError(formElement, inputElement) {
+  var errorElement = formElement.querySelector(".".concat(inputElement.id, "-error"));
   inputElement.classList.remove("form__input_type_error");
-  formError.classList.remove("form__input-error_active");
-  formError.textContent = "";
+  errorElement.classList.remove("form__input-error_active");
+  errorElement.textContent = "";
 };
 
 var checkInputValidity = function checkInputValidity() {
   if (!formInput.validity.valid) {
-    showInputError(formInput, formInput.validationMessage);
+    showInputError(form, formInput, formInput.validationMessage);
   } else {
-    hideInputError(formInput);
+    hideInputError(form, formInput);
   }
 };
 
