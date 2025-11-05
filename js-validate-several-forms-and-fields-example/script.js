@@ -24,6 +24,31 @@ const checkInputValidity = (formElement, inputElement) => {
   }
 };
 
+// The function takes an array of fields
+const hasInvalidInput = (inputList) => {
+  // iterate over the array using the some() method
+  return inputList.some((inputElement) => {
+    // If the field is invalid, the callback will return true.
+    // The method will then stop, and hasInvalidInput() function will return true
+    // hasInvalidInput returns true
+
+    return !inputElement.validity.valid;
+  });
+};
+
+// The function takes an array of input fields
+// and the button element, whose state you need to change
+const toggleButtonState = (inputList, buttonElement) => {
+  // If there is at least one invalid input
+  if (hasInvalidInput(inputList)) {
+    // make the button inactive
+    buttonElement.classList.add("form__submit_inactive");
+  } else {
+    // otherwise, make it active
+    buttonElement.classList.remove("form__submit_inactive");
+  }
+};
+
 const setEventListeners = (formElement) => {
   // Find all fields inside the form, and
   // make an array from them using the Array.from() method
@@ -54,17 +79,5 @@ const enableValidation = () => {
     // Call the setEventListeners() function for each form,
     // taking a form element as an argument
     setEventListeners(formElement);
-  });
-};
-
-// The function takes an array of fields
-const hasInvalidInput = (inputList) => {
-  // iterate over the array using the some() method
-  return inputList.some((inputElement) => {
-    // If the field is invalid, the callback will return true.
-    // The method will then stop, and hasInvalidInput() function will return true
-    // hasInvalidInput returns true
-
-    return !inputElement.validity.valid;
   });
 };
