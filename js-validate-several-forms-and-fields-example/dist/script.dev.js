@@ -18,11 +18,11 @@ var hideInputError = function hideInputError(formElement, inputElement) {
   errorElement.textContent = "";
 };
 
-var checkInputValidity = function checkInputValidity() {
-  if (!formInput.validity.valid) {
-    showInputError(form, formInput, formInput.validationMessage);
+var checkInputValidity = function checkInputValidity(formElement, inputElement) {
+  if (!inputElement.validity.valid) {
+    showInputError(formElement, inputElement, inputElement.validationMessage);
   } else {
-    hideInputError(form, formInput);
+    hideInputError(formElement, inputElement);
   }
 };
 
@@ -30,5 +30,5 @@ form.addEventListener("submit", function (evt) {
   evt.preventDefault();
 });
 formInput.addEventListener("input", function () {
-  checkInputValidity();
+  checkInputValidity(form, formInput);
 });

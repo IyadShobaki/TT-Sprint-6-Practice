@@ -16,11 +16,11 @@ const hideInputError = (formElement, inputElement) => {
   errorElement.textContent = "";
 };
 
-const checkInputValidity = () => {
-  if (!formInput.validity.valid) {
-    showInputError(form, formInput, formInput.validationMessage);
+const checkInputValidity = (formElement, inputElement) => {
+  if (!inputElement.validity.valid) {
+    showInputError(formElement, inputElement, inputElement.validationMessage);
   } else {
-    hideInputError(form, formInput);
+    hideInputError(formElement, inputElement);
   }
 };
 
@@ -29,5 +29,5 @@ form.addEventListener("submit", function (evt) {
 });
 
 formInput.addEventListener("input", function () {
-  checkInputValidity();
+  checkInputValidity(form, formInput);
 });
