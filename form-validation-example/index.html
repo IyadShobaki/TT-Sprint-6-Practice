@@ -44,6 +44,22 @@
             Subscribe to notifications
           </button>
         </form>
+        <!-- Another form to use JS form validation -->
+        <form class="form" name="urlForm" novalidate>
+          <!-- novalidate to disable default error messages -->
+          <label class="form__field">
+            Enter your URL:
+            <input
+              name="url"
+              type="url"
+              class="form__input"
+              placeholder=""
+              required
+              minlength="13"
+            />
+          </label>
+          <button type="submit" class="button">Submit</button>
+        </form>
       </main>
     </div>
     <script src="script.js"></script>
