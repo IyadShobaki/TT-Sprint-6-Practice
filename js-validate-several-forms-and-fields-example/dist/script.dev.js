@@ -26,9 +26,17 @@ var checkInputValidity = function checkInputValidity(formElement, inputElement) 
   }
 };
 
-form.addEventListener("submit", function (evt) {
-  evt.preventDefault();
-});
-formInput.addEventListener("input", function () {
-  checkInputValidity(form, formInput);
-});
+var setEventListeners = function setEventListeners(formElement) {
+  // Find all fields inside the form, and
+  // make an array from them using the Array.from() method
+  var inputList = Array.from(formElement.querySelectorAll(".form__input")); // Iterate over the resulting array
+
+  inputList.forEach(function (inputElement) {
+    // add the input event handler to each field
+    inputElement.addEventListener("input", function () {
+      // Call the checkInputValidity() function inside the callback,
+      // and pass the form and the element to be checked to it
+      checkInputValidity(formElement, inputElement);
+    });
+  });
+};

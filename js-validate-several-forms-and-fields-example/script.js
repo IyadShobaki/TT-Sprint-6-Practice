@@ -24,10 +24,18 @@ const checkInputValidity = (formElement, inputElement) => {
   }
 };
 
-form.addEventListener("submit", function (evt) {
-  evt.preventDefault();
-});
+const setEventListeners = (formElement) => {
+  // Find all fields inside the form, and
+  // make an array from them using the Array.from() method
+  const inputList = Array.from(formElement.querySelectorAll(".form__input"));
 
-formInput.addEventListener("input", function () {
-  checkInputValidity(form, formInput);
-});
+  // Iterate over the resulting array
+  inputList.forEach((inputElement) => {
+    // add the input event handler to each field
+    inputElement.addEventListener("input", () => {
+      // Call the checkInputValidity() function inside the callback,
+      // and pass the form and the element to be checked to it
+      checkInputValidity(formElement, inputElement);
+    });
+  });
+};
