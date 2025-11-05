@@ -40,3 +40,22 @@ var setEventListeners = function setEventListeners(formElement) {
     });
   });
 };
+
+var enableValidation = function enableValidation() {
+  // It will find all forms with the specified class in DOM, and
+  // make an array from them using the Array.from() method
+  var formList = Array.from(document.querySelectorAll(".form")); // Iterate over the resulting array
+
+  formList.forEach(function (formElement) {
+    formElement.addEventListener("submit", function (evt) {
+      // Cancel default behavior for each form
+      evt.preventDefault();
+    }); // Call the setEventListeners() function for each form,
+    // taking a form element as an argument
+
+    setEventListeners(formElement);
+  });
+}; // Call the function
+
+
+enableValidation();
