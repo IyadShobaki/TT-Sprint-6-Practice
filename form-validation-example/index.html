@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Subscription</title>
+    <link
+      rel="stylesheet"
+      href="https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_normalize.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://practicum-content.s3.us-west-1.amazonaws.com/web-code/form-validation/lesson-2/moved_index.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="page">
+    <div class="page__content">
+      <main class="page__section content">
+        <h1 class="content__title">Get subscription</h1>
+        <form class="form">
+          <label class="form__field">
+            Enter your email:
+            <input type="email" class="form__input" required />
+          </label>
+          <label class="form__field form__field_type_row">
+            <input class="form__checkbox" type="checkbox" required />
+            <span class="form__checkbox-item"></span>
+            <span class="form__text"
+              >Consent to the processing of personal data</span
+            >
+          </label>
+          <button type="submit" class="button">
+            Subscribe to notifications
+          </button>
+        </form>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

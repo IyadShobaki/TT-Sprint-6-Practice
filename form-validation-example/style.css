@@ -1,0 +1,7 @@
+.form__input:hover {
+  border-bottom-color: #000;
+}
+
+.form__input:focus {
+  border-bottom-color: #007dff;
+}
