@@ -55,7 +55,15 @@ var enableValidation = function enableValidation() {
 
     setEventListeners(formElement);
   });
-}; // Call the function
+}; // The function takes an array of fields
 
 
-enableValidation();
+var hasInvalidInput = function hasInvalidInput(inputList) {
+  // iterate over the array using the some() method
+  return inputList.some(function (inputElement) {
+    // If the field is invalid, the callback will return true.
+    // The method will then stop, and hasInvalidInput() function will return true
+    // hasInvalidInput returns true
+    return !inputElement.validity.valid;
+  });
+};
