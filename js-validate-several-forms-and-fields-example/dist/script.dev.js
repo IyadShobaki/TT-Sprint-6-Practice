@@ -74,9 +74,14 @@ var enableValidation = function enableValidation() {
     formElement.addEventListener("submit", function (evt) {
       // Cancel default behavior for each form
       evt.preventDefault();
-    }); // Call the setEventListeners() function for each form,
+    });
+    /*  // Call the setEventListeners() function for each form,
     // taking a form element as an argument
+    setEventListeners(formElement); */
 
-    setEventListeners(formElement);
+    var fieldsetList = Array.from(formElement.querySelectorAll(".form__set"));
+    fieldsetList.forEach(function (fieldset) {
+      setEventListeners(fieldset);
+    });
   });
 };

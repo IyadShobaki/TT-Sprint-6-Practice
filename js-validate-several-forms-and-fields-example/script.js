@@ -76,8 +76,14 @@ const enableValidation = () => {
       evt.preventDefault();
     });
 
-    // Call the setEventListeners() function for each form,
+    /*  // Call the setEventListeners() function for each form,
     // taking a form element as an argument
-    setEventListeners(formElement);
+    setEventListeners(formElement); */
+
+    const fieldsetList = Array.from(formElement.querySelectorAll(".form__set"));
+
+    fieldsetList.forEach((fieldset) => {
+      setEventListeners(fieldset);
+    });
   });
 };
