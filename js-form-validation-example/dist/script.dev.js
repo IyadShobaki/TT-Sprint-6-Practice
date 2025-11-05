@@ -16,7 +16,11 @@ var showError = function showError(input, errorMessage) {
 
 var hideError = function hideError(input) {
   // remove the error class from the input element
-  input.classList.remove("form__input_type_error");
+  input.classList.remove("form__input_type_error"); // 5. Remove the active error class from formError.
+
+  formError.classList.remove("form__input-error_active"); // 6. Reset the textContent property for formError element.
+
+  formError.textContent = "";
 };
 
 var checkInputValidity = function checkInputValidity() {
