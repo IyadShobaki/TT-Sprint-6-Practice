@@ -25,7 +25,13 @@
         <form class="form">
           <label class="form__field">
             Enter your email:
-            <input type="email" class="form__input" required />
+            <input
+              type="email"
+              class="form__input"
+              required
+              minlength="7"
+              maxlength="25"
+            />
           </label>
           <label class="form__field form__field_type_row">
             <input class="form__checkbox" type="checkbox" required />
