@@ -1,7 +1,3 @@
-const form = document.querySelector(".form");
-const formInput = form.querySelector(".form__input");
-const formError = form.querySelector(`.${formInput.id}-error`);
-
 const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add("form__input_type_error");
@@ -42,10 +38,10 @@ const toggleButtonState = (inputList, buttonElement) => {
   // If there is at least one invalid input
   if (hasInvalidInput(inputList)) {
     // make the button inactive
-    buttonElement.classList.add("form__submit_inactive");
+    buttonElement.classList.add("button_inactive");
   } else {
     // otherwise, make it active
-    buttonElement.classList.remove("form__submit_inactive");
+    buttonElement.classList.remove("button_inactive");
   }
 };
 
@@ -53,7 +49,10 @@ const setEventListeners = (formElement) => {
   // Find all fields inside the form, and
   // make an array from them using the Array.from() method
   const inputList = Array.from(formElement.querySelectorAll(".form__input"));
-
+  // Find the submit button in the current form
+  const buttonElement = formElement.querySelector(".form__submit");
+  // Call the toggleButtonState() before we start listening to the input event
+  toggleButtonState(inputList, buttonElement);
   // Iterate over the resulting array
   inputList.forEach((inputElement) => {
     // add the input event handler to each field
@@ -61,6 +60,8 @@ const setEventListeners = (formElement) => {
       // Call the checkInputValidity() function inside the callback,
       // and pass the form and the element to be checked to it
       checkInputValidity(formElement, inputElement);
+      // Call the toggleButtonState() and pass an array of fields and the button to it
+      toggleButtonState(inputList, buttonElement);
     });
   });
 };
@@ -87,3 +88,4 @@ const enableValidation = () => {
     });
   });
 };
+enableValidation();

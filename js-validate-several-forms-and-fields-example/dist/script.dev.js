@@ -1,9 +1,5 @@
 "use strict";
 
-var form = document.querySelector(".form");
-var formInput = form.querySelector(".form__input");
-var formError = form.querySelector(".".concat(formInput.id, "-error"));
-
 var showInputError = function showInputError(formElement, inputElement, errorMessage) {
   var errorElement = formElement.querySelector(".".concat(inputElement.id, "-error"));
   inputElement.classList.add("form__input_type_error");
@@ -43,24 +39,30 @@ var toggleButtonState = function toggleButtonState(inputList, buttonElement) {
   // If there is at least one invalid input
   if (hasInvalidInput(inputList)) {
     // make the button inactive
-    buttonElement.classList.add("form__submit_inactive");
+    buttonElement.classList.add("button_inactive");
   } else {
     // otherwise, make it active
-    buttonElement.classList.remove("form__submit_inactive");
+    buttonElement.classList.remove("button_inactive");
   }
 };
 
 var setEventListeners = function setEventListeners(formElement) {
   // Find all fields inside the form, and
   // make an array from them using the Array.from() method
-  var inputList = Array.from(formElement.querySelectorAll(".form__input")); // Iterate over the resulting array
+  var inputList = Array.from(formElement.querySelectorAll(".form__input")); // Find the submit button in the current form
+
+  var buttonElement = formElement.querySelector(".form__submit"); // Call the toggleButtonState() before we start listening to the input event
+
+  toggleButtonState(inputList, buttonElement); // Iterate over the resulting array
 
   inputList.forEach(function (inputElement) {
     // add the input event handler to each field
     inputElement.addEventListener("input", function () {
       // Call the checkInputValidity() function inside the callback,
       // and pass the form and the element to be checked to it
-      checkInputValidity(formElement, inputElement);
+      checkInputValidity(formElement, inputElement); // Call the toggleButtonState() and pass an array of fields and the button to it
+
+      toggleButtonState(inputList, buttonElement);
     });
   });
 };
@@ -85,3 +87,5 @@ var enableValidation = function enableValidation() {
     });
   });
 };
+
+enableValidation();
