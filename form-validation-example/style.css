@@ -5,3 +5,20 @@
 .form__input:focus {
   border-bottom-color: #007dff;
 }
+
+.form__input:invalid {
+  border-bottom: 1px solid red;
+}
+
+.form__input:valid {
+  border-bottom: 1px solid green;
+}
+
+.form__checkbox:checked + .form__checkbox-item {
+  background: #007dff;
+}
+
+.form__checkbox:checked + .form__checkbox-item::before {
+  background: url(https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_checkbox.svg)
+    center no-repeat;
+}
